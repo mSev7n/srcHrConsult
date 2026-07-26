@@ -327,7 +327,7 @@ export default function BookstorePage() {
 
               <div className="mt-8 space-y-4 text-[15px] leading-relaxed text-navy-600">
                 <p>
-                  Pursuing a fully funded PhD can be a life-changing academic and professional journey. Yet for many aspiring researchers and Master's graduates, the process can appear confusing and overwhelming.
+                  Pursuing a fully funded PhD can be a life-changing academic and professional journey. Yet for many aspiring researchers and Master&apos;s graduates, the process can appear confusing and overwhelming.
                 </p>
                 <p>
                   <em>From Aspiration to Impact</em> was created to provide practical guidance to aspiring PhD candidates and researchers seeking to understand the journey from ambition to academic opportunity — with a particular focus on the Netherlands.

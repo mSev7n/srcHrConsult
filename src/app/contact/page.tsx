@@ -341,7 +341,7 @@ export default function ContactPage() {
                   How Can We Assist You?
                 </h2>
                 <p className="mt-1.5 text-sm text-navy-600">
-                  Please complete the contact form below and we'll be in touch shortly.
+                  Please complete the contact form below and we&apos;ll be in touch shortly.
                 </p>
               </div>
               <Suspense fallback={<div className="h-[480px] animate-pulse rounded-3xl bg-white" />}>
