@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-navy-900 antialiased;
+  }
+
+  ::selection {
+    @apply bg-navy-700 text-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* shared card hover: lift + a light diagonal shine sweeping through.
+     border/bg colour is left to each card so dark variants aren't stuck
+     with a light-mode tint */
+  .card-pop {
+    @apply relative isolate overflow-hidden transition-all duration-500 ease-premium hover:-translate-y-1.5 hover:shadow-card;
+  }
+
+  .card-pop::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      115deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.55) 48%,
+      transparent 66%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .card-pop:hover::after {
+    transform: translateX(120%);
+  }
+
+  .card-pop-dark::after {
+    background: linear-gradient(
+      115deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.14) 48%,
+      transparent 66%
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
