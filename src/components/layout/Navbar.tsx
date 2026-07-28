@@ -22,8 +22,7 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Whatever got us to a new page — a dropdown click, the logo, browser
-  // back/forward — the dropdown and mobile drawer should never survive it.
+
   useEffect(() => {
     setServicesOpen(false);
     setMobileOpen(false);

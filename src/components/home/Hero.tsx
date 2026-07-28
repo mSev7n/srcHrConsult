@@ -30,7 +30,7 @@ export function Hero() {
       ref={sectionRef}
       className="relative h-[100svh] min-h-[680px] w-full overflow-hidden bg-navy-950"
     >
-      {/* Backdrop gradient — the shared "sky" both images dissolve into */}
+
       <div
         className="absolute inset-0"
         style={{
@@ -39,7 +39,7 @@ export function Hero() {
         }}
       />
 
-      {/* Plane layer — big and cinematic up top, fading out before it reaches the headline */}
+
       <motion.div
         className="absolute inset-x-0 top-0 z-[5] h-[54%] will-change-transform"
         initial={{ opacity: 0, y: 36, scale: 0.98 }}
@@ -69,7 +69,7 @@ export function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Clouds layer */}
+
       <motion.div
         className="absolute inset-x-0 bottom-0 z-[6] h-[52%] will-change-transform"
         initial={{ opacity: 0, y: 36, scale: 0.98 }}
@@ -99,7 +99,7 @@ export function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Scrim — sits above both images so the headline stays legible against either */}
+
       <div
         className="pointer-events-none absolute inset-0 z-[15]"
         style={{
@@ -108,7 +108,7 @@ export function Hero() {
         }}
       />
 
-      {/* Content */}
+
       <motion.div
         style={{ opacity: contentOpacity, y: contentY }}
         className="relative z-20 flex h-full flex-col"

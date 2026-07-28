@@ -7,10 +7,15 @@ export const SITE = {
   url: "https://successresourceconsult.com",
   phoneDisplay: "+234 814 233 0299",
   phoneIntl: "2348142330299",
-  email: "info@successresourceconsult.com",
-  address:
-    "119, Awolowo Way, De Plaza Vile, Allen Roundabout Bus Stop (Jaiz Bank), Beside Ibile Bank, Ikeja, Lagos State, Nigeria",
-  addressShort: "119 Awolowo Way, Allen Roundabout, Ikeja, Lagos",
+  email: "info@srchrconsult.com",
+  emails: [
+    { label: "General Enquiries", address: "info@srchrconsult.com" },
+    { label: "Partnerships", address: "partnerships@srchrconsult.com" },
+    { label: "Careers & Recruitment", address: "careers@srchrconsult.com" },
+    { label: "Scholarships", address: "scholarships@srchrconsult.com" },
+  ],
+  address: "Lagos, Nigeria",
+  addressShort: "Lagos, Nigeria",
 };
 
 export const SOCIALS = {

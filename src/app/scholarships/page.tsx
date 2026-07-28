@@ -15,12 +15,12 @@ import {
   UserCheck,
   Mic,
 } from "lucide-react";
-import { SplitHero } from "@/components/ui/SplitHero";
-import { FloatingStackVisual } from "@/components/ui/visuals/FloatingStackVisual";
+import { CinematicHero } from "@/components/ui/CinematicHero";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Reveal } from "@/components/ui/Reveal";
 import { CheckList } from "@/components/ui/CheckList";
+import { ImageFeature } from "@/components/ui/ImageFeature";
 import { FeatureGrid } from "@/components/ui/FeatureGrid";
 import { FlagGrid } from "@/components/ui/FlagGrid";
 import { FAQSection } from "@/components/ui/FAQSection";
@@ -200,11 +200,12 @@ const faqs = [
 export default function ScholarshipsPage() {
   return (
     <>
-      <SplitHero
+      <CinematicHero
         eyebrow="Scholarships"
         title="Scholarships That Turn Academic Dreams into Global Opportunities"
         description="At SRC, we believe financial limitations should not prevent talented and ambitious individuals from pursuing quality education. We help you identify suitable opportunities, understand requirements, and prepare competitive applications."
-        visual={<FloatingStackVisual items={heroVisualItems} />}
+        highlights={heroVisualItems.map(item => ({ icon: item.icon, value: item.title, label: item.subtitle }))}
+        backgroundImage="/images/scholarships.png"
       >
         <Button href="/book-consultation?service=Scholarships" size="lg">
           Book a Scholarship Consultation
@@ -212,7 +213,7 @@ export default function ScholarshipsPage() {
         <Button href="/eligibility-assessment" variant="outline-light" size="lg">
           Free Eligibility Assessment
         </Button>
-      </SplitHero>
+      </CinematicHero>
 
       <section className="bg-paper py-20 sm:py-28">
         <Container className="max-w-4xl">
@@ -222,7 +223,7 @@ export default function ScholarshipsPage() {
             description="Scholarships do more than reduce the cost of education. For many students, a scholarship is the opportunity that makes studying abroad possible."
           />
           <Reveal delay={0.15} className="mt-12">
-            <CheckList items={whyScholarshipsMatter} />
+            <CheckList items={whyScholarshipsMatter} columns={1} className="max-w-lg mx-auto" />
           </Reveal>
         </Container>
       </section>
@@ -266,33 +267,36 @@ export default function ScholarshipsPage() {
       </section>
 
       <section className="bg-white py-20 sm:py-28">
-        <Container className="max-w-4xl">
-          <SectionHeader
-            eyebrow="Common Scholarship Myths"
-            title="Separating myth from fact"
-          />
-          <div className="mt-12 space-y-5">
-            {myths.map((item, i) => (
-              <Reveal
-                key={item.myth}
-                delay={i * 0.08}
-                className="rounded-2xl border border-navy-900/[0.07] bg-paper p-6 sm:p-7"
-              >
-                <p className="text-sm font-semibold uppercase tracking-[0.1em] text-navy-500">
-                  Myth
-                </p>
-                <p className="mt-1.5 text-base font-medium text-navy-950">
-                  &ldquo;{item.myth}&rdquo;
-                </p>
-                <p className="mt-4 text-sm font-semibold uppercase tracking-[0.1em] text-navy-500">
-                  Fact
-                </p>
-                <p className="mt-1.5 text-sm leading-relaxed text-navy-600 sm:text-[15px]">
-                  {item.fact}
-                </p>
-              </Reveal>
-            ))}
-          </div>
+        <Container>
+          <ImageFeature reverse imageSrc="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200" imageAlt="Students celebrating graduation">
+            <SectionHeader
+              eyebrow="Common Scholarship Myths"
+              title="Separating myth from fact"
+              align="left"
+            />
+            <div className="mt-10 space-y-5">
+              {myths.map((item, i) => (
+                <Reveal
+                  key={item.myth}
+                  delay={i * 0.08}
+                  className="rounded-2xl border border-navy-900/[0.07] bg-paper p-6 sm:p-7"
+                >
+                  <p className="text-sm font-semibold uppercase tracking-[0.1em] text-navy-500">
+                    Myth
+                  </p>
+                  <p className="mt-1.5 text-base font-medium text-navy-950">
+                    &ldquo;{item.myth}&rdquo;
+                  </p>
+                  <p className="mt-4 text-sm font-semibold uppercase tracking-[0.1em] text-navy-500">
+                    Fact
+                  </p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-navy-600 sm:text-[15px]">
+                    {item.fact}
+                  </p>
+                </Reveal>
+              ))}
+            </div>
+          </ImageFeature>
         </Container>
       </section>
 

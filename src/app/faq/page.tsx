@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { GraduationCap, Award, Briefcase, Plane, Globe2 } from "lucide-react";
-import { SplitHero } from "@/components/ui/SplitHero";
-import { BadgeGridVisual } from "@/components/ui/visuals/BadgeGridVisual";
+import { CinematicHero } from "@/components/ui/CinematicHero";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
@@ -122,12 +121,12 @@ const categories = [
 export default function FaqPage() {
   return (
     <>
-      <SplitHero
+      <CinematicHero
         eyebrow="FAQ"
         title="Frequently Asked Questions"
         description="Answers to the questions we hear most often. Can't find what you're looking for? Reach out and our team will be glad to help."
-        visual={<BadgeGridVisual items={heroVisualItems} />}
-        reverse
+        highlights={heroVisualItems.map(item => ({ icon: item.icon, label: item.label }))}
+        backgroundImage="https://images.unsplash.com/photo-1507537297725-24a1242029?auto=format&fit=crop&q=80&w=2000"
       />
 
       <section className="bg-paper py-20 sm:py-28">

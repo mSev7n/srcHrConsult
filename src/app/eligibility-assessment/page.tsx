@@ -34,6 +34,7 @@ export default function EligibilityAssessmentPage() {
         title="Find Out Where You Stand — At No Cost"
         description="Tell us a little about your background and goals, and our team will review your details and follow up with personalized guidance."
         highlights={heroHighlights}
+        backgroundImage="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=2000"
       />
 
       <section className="bg-paper py-20 sm:py-28">

@@ -15,6 +15,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Reveal, RevealGroup } from "@/components/ui/Reveal";
 import { RevealSpan, RevealDiv } from "@/components/ui/RevealItem";
 import { CheckList } from "@/components/ui/CheckList";
+import { ImageFeature } from "@/components/ui/ImageFeature";
 import { FeatureGrid } from "@/components/ui/FeatureGrid";
 import { NumberedSteps } from "@/components/ui/NumberedSteps";
 import { InfoNote } from "@/components/ui/InfoNote";
@@ -265,6 +266,7 @@ export default function ImmigrationServicesPage() {
         title="Explore Your Pathway to a New Future"
         description="Immigration decisions can be among the most important decisions an individual or family makes. At SRC, we provide professional information, guidance, and support relating to selected immigration and international mobility pathways — helping you understand your options and prepare with confidence."
         highlights={heroHighlights}
+        backgroundImage="/images/immigration.png"
       >
         <Button href="/book-consultation?service=Immigration%20Services" size="lg">
           Book an Immigration Consultation
@@ -422,7 +424,7 @@ export default function ImmigrationServicesPage() {
             description="Before beginning an immigration process, it is important to understand your circumstances. A profile assessment may consider factors such as:"
           />
           <Reveal delay={0.15} className="mt-12">
-            <CheckList items={assessmentFactors} />
+            <CheckList items={assessmentFactors} columns={1} className="max-w-sm mx-auto" />
           </Reveal>
           <Reveal delay={0.22} className="mt-8 text-center">
             <p className="text-xs italic leading-relaxed text-navy-500">
@@ -469,17 +471,17 @@ export default function ImmigrationServicesPage() {
             {pathwayGroups.map((group) => (
               <RevealDiv
                 key={group.title}
-                className="card-pop card-pop-dark rounded-3xl border border-white/10 bg-white/[0.04] p-7"
+                className="card-pop card-pop-dark flex flex-col items-center text-center rounded-3xl border border-white/10 bg-white/[0.04] p-7"
               >
                 <span className="text-2xl leading-none">{group.flag}</span>
                 <h3 className="mt-3 text-base font-semibold text-white">
                   {group.title}
                 </h3>
-                <ul className="mt-4 space-y-2">
+                <ul className="mt-4 space-y-2 w-full">
                   {group.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-white/70">
+                    <li key={item} className="flex items-start justify-center gap-2 text-sm text-white/70">
                       <ChevronRight className="mt-0.5 size-3.5 shrink-0 text-white/40" />
-                      {item}
+                      <span className="text-left">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -509,36 +511,39 @@ export default function ImmigrationServicesPage() {
 
       {/* Immigration vs Visa */}
       <section className="bg-white py-20 sm:py-28">
-        <Container className="max-w-4xl">
-          <SectionHeader
-            eyebrow="Immigration vs. Visa Services"
-            title="Understanding the difference"
-          />
-          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2">
-            <Reveal className="rounded-3xl border border-navy-900/[0.07] bg-paper p-7 sm:p-8">
-              <h3 className="text-base font-semibold text-navy-950">Visa Services</h3>
-              <p className="mt-2 text-sm leading-relaxed text-navy-600">
-                Visa services generally relate to permission to enter or
-                temporarily remain in a country for a specific purpose.
+        <Container>
+          <ImageFeature imageSrc="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1200" imageAlt="Professional consultants discussing immigration options">
+            <SectionHeader
+              eyebrow="Immigration vs. Visa Services"
+              title="Understanding the difference"
+              align="left"
+            />
+            <div className="mt-10 space-y-5">
+              <Reveal className="rounded-3xl border border-navy-900/[0.07] bg-paper p-7 sm:p-8 flex flex-col items-center text-center">
+                <h3 className="text-base font-semibold text-navy-950">Visa Services</h3>
+                <p className="mt-2 text-sm leading-relaxed text-navy-600">
+                  Visa services generally relate to permission to enter or
+                  temporarily remain in a country for a specific purpose.
+                </p>
+              </Reveal>
+              <Reveal delay={0.08} className="rounded-3xl border border-navy-900/[0.07] bg-paper p-7 sm:p-8 flex flex-col items-center text-center">
+                <h3 className="text-base font-semibold text-navy-950">Immigration Services</h3>
+                <p className="mt-2 text-sm leading-relaxed text-navy-600">
+                  Immigration services generally involve pathways that may
+                  lead to longer-term residence or permanent immigration
+                  status.
+                </p>
+              </Reveal>
+            </div>
+            <Reveal delay={0.16} className="mt-8 text-left">
+              <p className="text-sm leading-relaxed text-navy-600">
+                The requirements and processes are different. SRC provides
+                information and guidance across selected areas while helping
+                clients understand the distinction between temporary travel
+                and long-term immigration pathways.
               </p>
             </Reveal>
-            <Reveal delay={0.08} className="rounded-3xl border border-navy-900/[0.07] bg-paper p-7 sm:p-8">
-              <h3 className="text-base font-semibold text-navy-950">Immigration Services</h3>
-              <p className="mt-2 text-sm leading-relaxed text-navy-600">
-                Immigration services generally involve pathways that may
-                lead to longer-term residence or permanent immigration
-                status.
-              </p>
-            </Reveal>
-          </div>
-          <Reveal delay={0.16} className="mt-8 text-center">
-            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-navy-600">
-              The requirements and processes are different. SRC provides
-              information and guidance across selected areas while helping
-              clients understand the distinction between temporary travel
-              and long-term immigration pathways.
-            </p>
-          </Reveal>
+          </ImageFeature>
         </Container>
       </section>
 
@@ -551,23 +556,23 @@ export default function ImmigrationServicesPage() {
             description="SRC believes immigration services must be delivered responsibly."
           />
           <div className="mt-14 grid grid-cols-1 gap-6 lg:mt-16 lg:grid-cols-2">
-            <Reveal className="rounded-3xl border border-navy-900/[0.07] bg-white p-7 shadow-soft sm:p-8">
+            <Reveal className="flex flex-col items-center text-center rounded-3xl border border-navy-900/[0.07] bg-white p-7 shadow-soft sm:p-8">
               <h3 className="text-base font-semibold text-navy-950">
                 We are committed to:
               </h3>
-              <div className="mt-5">
+              <div className="mt-5 w-full">
                 <CheckList items={committedTo} columns={1} />
               </div>
             </Reveal>
-            <Reveal delay={0.08} className="rounded-3xl border border-navy-900/[0.07] bg-navy-950/[0.02] p-7 sm:p-8">
+            <Reveal delay={0.08} className="flex flex-col items-start text-left rounded-3xl border border-navy-900/[0.07] bg-navy-950/[0.02] p-7 sm:p-8">
               <h3 className="text-base font-semibold text-navy-950">
                 We do not support:
               </h3>
-              <div className="mt-5 space-y-3">
+              <div className="mt-5 w-full space-y-3">
                 {doNotSupport.map((item) => (
                   <div key={item} className="flex items-start gap-3">
                     <XCircle className="mt-0.5 size-5 shrink-0 text-navy-400" strokeWidth={1.75} />
-                    <span className="text-sm leading-relaxed text-navy-500">
+                    <span className="text-sm leading-relaxed text-navy-500 text-left">
                       {item}
                     </span>
                   </div>

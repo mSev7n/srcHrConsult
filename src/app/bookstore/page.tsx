@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "Explore SRC publications — practical books, e-books, and educational guides designed to help you pursue funded PhD opportunities, scholarships, and international careers.",
 };
 
-// What readers will learn — pulled straight from the brief
+
 const learningOutcomes = [
   "Understanding funded PhD opportunities",
   "Finding PhD positions in the Netherlands",
@@ -49,7 +49,7 @@ const learningOutcomes = [
   "Building a meaningful academic career",
 ];
 
-// Reader profiles for "Who is this book for?"
+
 const readerProfiles = [
   {
     emoji: "🎓",
@@ -89,7 +89,7 @@ const readerProfiles = [
   },
 ];
 
-// Publication categories
+
 const categories = [
   {
     icon: GraduationCap,
@@ -123,7 +123,7 @@ const categories = [
   },
 ];
 
-// Why buy from SRC
+
 const buyReasons = [
   {
     icon: BookOpen,
@@ -147,7 +147,7 @@ const buyReasons = [
   },
 ];
 
-// The author's philosophy — displayed as pull quotes
+
 const philosophyLines = [
   "Knowledge creates awareness.",
   "Awareness creates confidence.",
@@ -155,7 +155,7 @@ const philosophyLines = [
   "And purposeful action can create impact.",
 ];
 
-// Future publications
+
 const futureTopics = [
   "Scholarships",
   "PhD opportunities",
@@ -168,7 +168,7 @@ const futureTopics = [
   "Career mobility",
 ];
 
-// Institutional collaboration types
+
 const institutionTypes = [
   "Universities & educational institutions",
   "Professional & research organizations",
@@ -185,7 +185,7 @@ const collaborationTypes = [
   "Research and education events",
 ];
 
-// Disclaimer list
+
 const disclaimerItems = [
   "Scholarship awards",
   "University admission",

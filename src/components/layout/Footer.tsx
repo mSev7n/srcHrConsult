@@ -116,15 +116,20 @@ export function Footer() {
                   {SITE.phoneDisplay}
                 </a>
               </li>
-              <li>
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="flex items-center gap-3 text-sm text-white/70 hover:text-white"
-                >
-                  <Mail className="size-4 shrink-0" strokeWidth={1.75} />
-                  {SITE.email}
-                </a>
-              </li>
+              {SITE.emails.map((email) => (
+                <li key={email.address}>
+                  <a
+                    href={`mailto:${email.address}`}
+                    className="flex items-start gap-3 text-sm text-white/70 hover:text-white"
+                  >
+                    <Mail className="mt-0.5 size-4 shrink-0" strokeWidth={1.75} />
+                    <div>
+                      <span className="block font-medium text-white/90">{email.label}</span>
+                      {email.address}
+                    </div>
+                  </a>
+                </li>
+              ))}
               <li>
                 <a
                   href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE.address)}`}

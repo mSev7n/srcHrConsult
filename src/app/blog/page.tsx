@@ -170,6 +170,7 @@ export default function BlogPage() {
         title="Learn. Discover. Prepare. Make Informed Decisions."
         description="A growing library of practical information, educational resources, global opportunity updates and professional insights from Success Resource Consult — built so every visitor leaves knowing something they didn't know before."
         highlights={heroHighlights}
+        backgroundImage="https://images.unsplash.com/photo-1507537297725-24a1242029ef?auto=format&fit=crop&q=80&w=2000"
       >
         <Button href="#topics">Explore the Knowledge Centre</Button>
         <Button href="#subscribe" variant="outline-light">
@@ -241,11 +242,9 @@ export default function BlogPage() {
           />
           <div className="mt-14 lg:mt-16">
             <FeatureGrid
-              features={upcomingFeatures.map((f) => ({
-                ...f,
-                icon: <span className="text-white">{f.icon}</span>,
-              }))}
+              features={upcomingFeatures}
               columns={2}
+              tone="dark"
             />
           </div>
         </Container>

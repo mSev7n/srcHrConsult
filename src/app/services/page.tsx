@@ -9,8 +9,7 @@ import {
   Users,
   ArrowUpRight,
 } from "lucide-react";
-import { SplitHero } from "@/components/ui/SplitHero";
-import { BadgeGridVisual } from "@/components/ui/visuals/BadgeGridVisual";
+import { CinematicHero } from "@/components/ui/CinematicHero";
 import { Container } from "@/components/ui/Container";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { Button } from "@/components/ui/Button";
@@ -78,15 +77,15 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
-      <SplitHero
+      <CinematicHero
         eyebrow="Our Services"
         title="One consultancy, six pathways to a global future"
         description="From your first application to your final departure, SRC provides ethical, professional guidance at every stage of your international journey."
-        visual={<BadgeGridVisual items={heroVisualItems} />}
-        reverse
+        highlights={heroVisualItems.map(item => ({ icon: item.icon, label: item.label }))}
+        backgroundImage="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=2000"
       >
         <Button href="/book-consultation">Book a Consultation</Button>
-      </SplitHero>
+      </CinematicHero>
 
       <section className="bg-paper py-20 sm:py-28">
         <Container>
@@ -95,12 +94,12 @@ export default function ServicesPage() {
               <Link
                 key={service.title}
                 href={service.href}
-                className="card-pop group flex flex-col rounded-3xl border border-navy-900/[0.07] bg-white p-8 shadow-soft hover:border-navy-500/40 hover:bg-navy-50/70"
+                className="card-pop group flex flex-col items-center text-center rounded-3xl border border-navy-900/[0.07] bg-white p-8 shadow-soft hover:border-navy-500/40 hover:bg-navy-50/70"
               >
                 <div className="flex size-12 items-center justify-center rounded-2xl bg-navy-950 text-white transition-transform duration-500 ease-premium group-hover:scale-110">
                   <service.icon className="size-5" strokeWidth={1.75} />
                 </div>
-                <h3 className="mt-6 flex items-center justify-between text-lg font-semibold text-navy-950">
+                <h3 className="mt-6 flex items-center justify-center gap-2 text-lg font-semibold text-navy-950">
                   {service.title}
                   <ArrowUpRight className="size-4 text-navy-300 transition-all duration-500 ease-premium group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-navy-900" />
                 </h3>

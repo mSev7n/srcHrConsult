@@ -13,12 +13,12 @@ import {
   Users,
   CalendarCheck,
 } from "lucide-react";
-import { SplitHero } from "@/components/ui/SplitHero";
-import { FloatingStackVisual } from "@/components/ui/visuals/FloatingStackVisual";
+import { CinematicHero } from "@/components/ui/CinematicHero";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Reveal } from "@/components/ui/Reveal";
 import { CheckList } from "@/components/ui/CheckList";
+import { ImageFeature } from "@/components/ui/ImageFeature";
 import { FeatureGrid } from "@/components/ui/FeatureGrid";
 import { FlagGrid } from "@/components/ui/FlagGrid";
 import { CtaBand } from "@/components/ui/CtaBand";
@@ -151,22 +151,23 @@ const destinations = [
 export default function AboutPage() {
   return (
     <>
-      <SplitHero
+      <CinematicHero
         eyebrow="About SRC"
         title="Empowering Global Dreams Through Education, Careers & Immigration"
         description={`Success Resource Consult (SRC) is an international education, career mobility, visa, immigration, and human resource consultancy committed to helping individuals and organizations access global opportunities through professional guidance, ethical practices, and personalized support. Established on ${SITE.foundedDate}, SRC was founded to bridge the gap between ambition and opportunity.`}
-        visual={<FloatingStackVisual items={heroVisualItems} />}
+        highlights={heroVisualItems.map(item => ({ icon: item.icon, value: item.title, label: item.subtitle }))}
+        backgroundImage="/images/why-src.png"
       >
         <Button href="/book-consultation">Book a Consultation</Button>
         <Button href="/contact" variant="outline-light">
           Contact Us
         </Button>
-      </SplitHero>
+      </CinematicHero>
 
       <section className="bg-paper py-20 sm:py-28">
         <Container>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            <Reveal className="card-pop rounded-3xl border border-navy-900/[0.07] bg-white p-8 shadow-soft hover:border-navy-500/40 hover:bg-navy-50/70 sm:p-10">
+            <Reveal className="card-pop flex flex-col items-center text-center rounded-3xl border border-navy-900/[0.07] bg-white p-8 shadow-soft hover:border-navy-500/40 hover:bg-navy-50/70 sm:p-10">
               <span className="text-xs font-semibold uppercase tracking-[0.14em] text-navy-500">
                 Our Vision
               </span>
@@ -179,7 +180,7 @@ export default function AboutPage() {
             </Reveal>
             <Reveal
               delay={0.1}
-              className="card-pop card-pop-dark rounded-3xl border border-navy-900/[0.07] bg-navy-950 p-8 shadow-soft sm:p-10"
+              className="card-pop card-pop-dark flex flex-col items-center text-center rounded-3xl border border-navy-900/[0.07] bg-navy-950 p-8 shadow-soft sm:p-10"
             >
               <span className="text-xs font-semibold uppercase tracking-[0.14em] text-white/50">
                 Our Mission
@@ -223,15 +224,18 @@ export default function AboutPage() {
       </section>
 
       <section className="bg-white py-20 sm:py-28">
-        <Container className="max-w-4xl">
-          <SectionHeader
-            eyebrow="Why Choose SRC"
-            title="Success measured in informed decisions"
-            description="We believe that success is not measured simply by applications submitted, but by the quality of guidance provided and the confidence clients gain throughout their journey."
-          />
-          <Reveal delay={0.15} className="mt-12">
-            <CheckList items={whyChoose} />
-          </Reveal>
+        <Container>
+          <ImageFeature imageSrc="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=1200" imageAlt="Business professionals collaborating">
+            <SectionHeader
+              eyebrow="Why Choose SRC"
+              title="Success measured in informed decisions"
+              description="We believe that success is not measured simply by applications submitted, but by the quality of guidance provided and the confidence clients gain throughout their journey."
+              align="left"
+            />
+            <Reveal delay={0.15} className="mt-10">
+              <CheckList items={whyChoose} columns={1} />
+            </Reveal>
+          </ImageFeature>
         </Container>
       </section>
 

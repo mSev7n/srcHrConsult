@@ -24,8 +24,7 @@ import {
   Clock,
   AlertCircle,
 } from "lucide-react";
-import { SplitHero } from "@/components/ui/SplitHero";
-import { FloatingStackVisual } from "@/components/ui/visuals/FloatingStackVisual";
+import { CinematicHero } from "@/components/ui/CinematicHero";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -174,11 +173,12 @@ const enquiryForms = [
 export default function ContactPage() {
   return (
     <>
-      <SplitHero
+      <CinematicHero
         eyebrow="Contact Us"
         title="Let's Start the Conversation"
         description="Have a question about studying abroad, scholarships, careers, visas, or immigration? Reach out — our team is here to help."
-        visual={<FloatingStackVisual items={heroVisualItems} />}
+        highlights={heroVisualItems.map(item => ({ icon: item.icon, value: item.title, label: item.subtitle }))}
+        backgroundImage="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000"
       />
 
       {/* ── HOW CAN WE HELP YOU? ────────────────────────────────── */}
@@ -257,18 +257,21 @@ export default function ContactPage() {
                   </div>
                 </a>
 
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="flex items-start gap-4 rounded-2xl border border-navy-900/10 bg-white p-5 shadow-soft transition-colors hover:border-navy-900/25"
-                >
-                  <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-navy-950 text-white">
-                    <Mail className="size-[18px]" strokeWidth={1.75} />
-                  </span>
-                  <div>
-                    <p className="text-sm font-semibold text-navy-950">Email</p>
-                    <p className="mt-1 text-sm text-navy-600">{SITE.email}</p>
-                  </div>
-                </a>
+                {SITE.emails.map((emailItem) => (
+                  <a
+                    key={emailItem.address}
+                    href={`mailto:${emailItem.address}`}
+                    className="flex items-start gap-4 rounded-2xl border border-navy-900/10 bg-white p-5 shadow-soft transition-colors hover:border-navy-900/25"
+                  >
+                    <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-navy-950 text-white">
+                      <Mail className="size-[18px]" strokeWidth={1.75} />
+                    </span>
+                    <div>
+                      <p className="text-sm font-semibold text-navy-950">Email ({emailItem.label})</p>
+                      <p className="mt-1 text-sm text-navy-600">{emailItem.address}</p>
+                    </div>
+                  </a>
+                ))}
 
                 <a
                   href={MAPS_DIRECTIONS_LINK}

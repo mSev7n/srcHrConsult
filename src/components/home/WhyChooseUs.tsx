@@ -66,8 +66,8 @@ export function WhyChooseUs() {
           <Reveal delay={0.1} y={40} className="relative">
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl bg-navy-950 shadow-glow-navy">
               <Image
-                src="/images/hero-clouds.webp"
-                alt="Layered clouds over a calm horizon, representing clarity and guidance"
+                src="/images/why-src.png"
+                alt="A diverse group of professionals discussing global opportunities, representing clarity, guidance, and a bright future"
                 fill
                 sizes="(min-width: 1024px) 40vw, 90vw"
                 className="object-cover"

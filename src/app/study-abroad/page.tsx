@@ -15,6 +15,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Reveal } from "@/components/ui/Reveal";
 import { CheckList } from "@/components/ui/CheckList";
+import { ImageFeature } from "@/components/ui/ImageFeature";
 import { FeatureGrid } from "@/components/ui/FeatureGrid";
 import { CountryShowcase } from "@/components/ui/CountryShowcase";
 import { FAQSection } from "@/components/ui/FAQSection";
@@ -189,6 +190,7 @@ export default function StudyAbroadPage() {
         title="Study Abroad with Confidence"
         description="Choosing to study abroad is one of the most important investments you can make in your future. Our experienced team supports your journey from first enquiry to departure — with professional, ethical guidance throughout."
         highlights={heroHighlights}
+        backgroundImage="/images/study-abroad.png"
       >
         <Button href="/book-consultation?service=Study%20Abroad" size="lg">
           Book a Consultation
@@ -199,15 +201,18 @@ export default function StudyAbroadPage() {
       </CinematicHero>
 
       <section className="bg-paper py-20 sm:py-28">
-        <Container className="max-w-4xl">
-          <SectionHeader
-            eyebrow="Why Study Abroad?"
-            title="More than a qualification — a life-changing experience"
-            description="Studying abroad offers much more than academic credentials. For many students, it's an experience that shapes both their professional and personal futures."
-          />
-          <Reveal delay={0.15} className="mt-12">
-            <CheckList items={whyStudyAbroad} />
-          </Reveal>
+        <Container>
+          <ImageFeature imageSrc="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1200" imageAlt="Diverse international students studying on campus">
+            <SectionHeader
+              eyebrow="Why Study Abroad?"
+              title="More than a qualification — a life-changing experience"
+              description="Studying abroad offers much more than academic credentials. For many students, it's an experience that shapes both their professional and personal futures."
+              align="left"
+            />
+            <Reveal delay={0.15} className="mt-10">
+              <CheckList items={whyStudyAbroad} columns={1} />
+            </Reveal>
+          </ImageFeature>
         </Container>
       </section>
 

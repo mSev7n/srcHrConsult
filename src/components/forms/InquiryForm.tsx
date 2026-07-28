@@ -50,8 +50,7 @@ export function InquiryForm({
         await sendInquiryEmail({ to_email: SITE.email, ...values, summary });
       }
     } catch {
-      // Email delivery is best-effort — the WhatsApp message still carries
-      // the full enquiry through, so we don't block the user on this.
+
     }
 
     window.open(WHATSAPP_LINK(whatsappMessage), "_blank", "noopener,noreferrer");

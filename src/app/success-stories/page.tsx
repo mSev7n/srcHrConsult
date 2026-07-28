@@ -271,8 +271,8 @@ export default function SuccessStoriesPage() {
             <p className="text-center text-sm font-semibold text-navy-950">
               Today, SRC continues to explore opportunities to work with:
             </p>
-            <div className="mx-auto mt-6 max-w-xl">
-              <CheckList items={partnerTypes} />
+            <div className="mx-auto mt-6 max-w-sm">
+              <CheckList items={partnerTypes} columns={1} />
             </div>
           </Reveal>
         </Container>

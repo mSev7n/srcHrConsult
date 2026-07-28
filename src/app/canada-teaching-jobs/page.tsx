@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Reveal } from "@/components/ui/Reveal";
 import { CheckList } from "@/components/ui/CheckList";
+import { ImageFeature } from "@/components/ui/ImageFeature";
 import { FAQSection } from "@/components/ui/FAQSection";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { Button } from "@/components/ui/Button";
@@ -38,7 +39,7 @@ const usGuidance = [
   "Required qualifications.",
   "Documentation preparation.",
   "Interview readiness.",
-  "Professional expectations.",
+  "Professional expectations and workplace standards.",
 ];
 
 const recruitmentGuidance = [
@@ -46,7 +47,7 @@ const recruitmentGuidance = [
   "Professional documentation.",
   "CV and résumé review.",
   "Interview preparation.",
-  "Understanding employer expectations.",
+  "Understanding employer expectations and requirements.",
 ];
 
 const hrServices = [
@@ -57,7 +58,7 @@ const hrServices = [
   "Organizational development.",
   "Performance management guidance.",
   "HR documentation support.",
-  "Employer branding.",
+  "Employer branding support.",
 ];
 
 const employerPartners = [
@@ -114,6 +115,7 @@ export default function CanadaTeachingJobsPage() {
         title="Canada Teaching Jobs & Global Career Opportunities"
         description="SRC works to connect qualified professionals with ethical international employment opportunities through partnerships with employers and recruitment organizations."
         highlights={heroHighlights}
+        backgroundImage="/images/canada-teaching.png"
       >
         <Button href="/book-consultation?service=Global%20Careers" size="lg">
           Book a Career Consultation
@@ -124,27 +126,29 @@ export default function CanadaTeachingJobsPage() {
       </CinematicHero>
 
       <section className="bg-paper py-20 sm:py-28">
-        <Container className="max-w-4xl">
-          <div className="flex items-center gap-3">
-            <span className="text-3xl">🍁</span>
-            <span className="text-xs font-semibold uppercase tracking-[0.14em] text-navy-500">
-              Canada Teaching Opportunities
-            </span>
-          </div>
-          <h2 className="mt-4 text-balance text-3xl font-semibold leading-[1.15] text-navy-950 sm:text-4xl">
-            Rewarding opportunities for qualified educators
-          </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-navy-600 sm:text-lg">
-            Canada continues to offer rewarding career opportunities for
-            qualified educators in many provinces, depending on labour
-            market needs and provincial requirements. Our objective is to
-            help educators prepare competitive applications while
-            understanding that employment decisions are made by individual
-            employers and regulatory requirements vary by province.
-          </p>
-          <Reveal delay={0.15} className="mt-10">
-            <CheckList items={canadaGuidance} />
-          </Reveal>
+        <Container>
+          <ImageFeature imageSrc="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=1200" imageAlt="Professional teacher in a modern classroom">
+            <div className="flex items-center gap-3">
+              <span className="text-3xl">🍁</span>
+              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-navy-500">
+                Canada Teaching Opportunities
+              </span>
+            </div>
+            <h2 className="mt-4 text-balance text-3xl font-semibold leading-[1.15] text-navy-950 sm:text-4xl">
+              Rewarding opportunities for qualified educators
+            </h2>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-navy-600 sm:text-lg">
+              Canada continues to offer rewarding career opportunities for
+              qualified educators in many provinces, depending on labour
+              market needs and provincial requirements. Our objective is to
+              help educators prepare competitive applications while
+              understanding that employment decisions are made by individual
+              employers and regulatory requirements vary by province.
+            </p>
+            <Reveal delay={0.15} className="mt-10">
+              <CheckList items={canadaGuidance} columns={1} />
+            </Reveal>
+          </ImageFeature>
         </Container>
       </section>
 
@@ -167,7 +171,7 @@ export default function CanadaTeachingJobsPage() {
             application.
           </p>
           <Reveal delay={0.15} className="mt-10">
-            <CheckList items={usGuidance} />
+            <CheckList items={usGuidance} columns={1} className="max-w-sm mx-auto" />
           </Reveal>
         </Container>
       </section>
@@ -180,7 +184,7 @@ export default function CanadaTeachingJobsPage() {
             description="We also support employers by assisting with candidate sourcing and pre-screening where appropriate."
           />
           <Reveal delay={0.15} className="mx-auto mt-12 max-w-3xl">
-            <CheckList items={recruitmentGuidance} />
+            <CheckList items={recruitmentGuidance} columns={1} className="max-w-sm mx-auto" />
           </Reveal>
         </Container>
       </section>
@@ -188,7 +192,7 @@ export default function CanadaTeachingJobsPage() {
       <section className="bg-navy-950 py-20 sm:py-28">
         <Container>
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-2">
-            <div>
+            <div className="flex flex-col items-center text-center">
               <div className="flex size-11 items-center justify-center rounded-xl bg-white/10 text-white">
                 <Users className="size-5" strokeWidth={1.75} />
               </div>
@@ -199,11 +203,11 @@ export default function CanadaTeachingJobsPage() {
                 Our HR consulting services are designed to support
                 organizations in developing effective workforce solutions.
               </p>
-              <Reveal delay={0.12} className="mt-7">
-                <CheckList items={hrServices} columns={2} tone="dark" />
+              <Reveal delay={0.12} className="mt-7 w-full">
+                <CheckList items={hrServices} columns={1} tone="dark" />
               </Reveal>
             </div>
-            <div>
+            <div className="flex flex-col items-center text-center">
               <div className="flex size-11 items-center justify-center rounded-xl bg-white/10 text-white">
                 <Building2 className="size-5" strokeWidth={1.75} />
               </div>
@@ -216,7 +220,7 @@ export default function CanadaTeachingJobsPage() {
                 access qualified and motivated talent. SRC welcomes
                 collaboration with:
               </p>
-              <Reveal delay={0.12} className="mt-7">
+              <Reveal delay={0.12} className="mt-7 w-full">
                 <CheckList items={employerPartners} columns={1} tone="dark" />
               </Reveal>
             </div>
@@ -227,25 +231,25 @@ export default function CanadaTeachingJobsPage() {
       <section className="bg-paper py-20 sm:py-28">
         <Container>
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-2">
-            <div>
+            <div className="flex flex-col items-center text-center">
               <div className="flex size-11 items-center justify-center rounded-xl bg-navy-950 text-white">
                 <Briefcase className="size-5" strokeWidth={1.75} />
               </div>
               <h3 className="mt-5 text-xl font-semibold text-navy-950 sm:text-2xl">
                 Why Professionals Choose SRC
               </h3>
-              <Reveal delay={0.12} className="mt-7">
+              <Reveal delay={0.12} className="mt-7 w-full">
                 <CheckList items={whyProfessionals} columns={1} />
               </Reveal>
             </div>
-            <div>
+            <div className="flex flex-col items-center text-center">
               <div className="flex size-11 items-center justify-center rounded-xl bg-navy-950 text-white">
                 <Building2 className="size-5" strokeWidth={1.75} />
               </div>
               <h3 className="mt-5 text-xl font-semibold text-navy-950 sm:text-2xl">
                 Why Employers Partner With SRC
               </h3>
-              <Reveal delay={0.12} className="mt-7">
+              <Reveal delay={0.12} className="mt-7 w-full">
                 <CheckList items={whyEmployers} columns={1} />
               </Reveal>
             </div>

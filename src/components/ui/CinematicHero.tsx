@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 
@@ -17,22 +18,38 @@ export function CinematicHero({
   description,
   children,
   highlights,
+  backgroundImage,
 }: {
   eyebrow: string;
   title: string;
   description?: string;
   children?: ReactNode;
   highlights?: HeroHighlight[];
+  backgroundImage?: string;
 }) {
   return (
     <section className="relative overflow-hidden bg-navy-950 pt-32 sm:pt-40">
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, #030a20 0%, #0a1a38 55%, #0f2246 100%)",
-        }}
-      />
+      {backgroundImage ? (
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={backgroundImage}
+            alt=""
+            fill
+            priority
+            className="object-cover opacity-40 mix-blend-luminosity"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/60 to-transparent" />
+          <div className="absolute inset-0 bg-navy-900/40 mix-blend-multiply" />
+        </div>
+      ) : (
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background:
+              "linear-gradient(180deg, #030a20 0%, #0a1a38 55%, #0f2246 100%)",
+          }}
+        />
+      )}
       <div
         className="absolute inset-0 opacity-60"
         style={{
@@ -88,14 +105,13 @@ export function CinematicHero({
         <Reveal delay={0.34} y={24} className="relative">
           <div className="border-t border-white/10 bg-white/[0.03] backdrop-blur-sm">
             <Container>
-              <div
-                className="grid grid-cols-2 divide-x divide-y divide-white/10 sm:grid-cols-4 sm:divide-y-0"
-                style={{ gridAutoRows: "1fr" }}
-              >
-                {highlights.slice(0, 4).map((h) => (
+              <div className="flex flex-wrap items-stretch justify-center divide-white/10 sm:divide-x">
+                {highlights.slice(0, 4).map((h, i) => (
                   <div
                     key={h.label}
-                    className="flex flex-col items-center justify-center gap-1.5 px-3 py-7 text-center"
+                    className={`flex flex-col items-center justify-center gap-1.5 px-3 py-7 text-center w-1/2 sm:w-auto sm:flex-1 ${
+                      i % 2 === 1 ? 'border-l border-white/10 sm:border-l-0' : ''
+                    } ${i > 1 ? 'border-t border-white/10 sm:border-t-0' : ''}`}
                   >
                     {h.icon && (
                       <span className="mb-1 flex size-9 items-center justify-center rounded-full bg-white/10 text-white">

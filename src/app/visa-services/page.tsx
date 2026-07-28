@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { GraduationCap, Plane, Briefcase, Users, FileSearch } from "lucide-react";
-import { SplitHero } from "@/components/ui/SplitHero";
+import { CinematicHero } from "@/components/ui/CinematicHero";
 import { ProcessDotsVisual } from "@/components/ui/visuals/ProcessDotsVisual";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Reveal } from "@/components/ui/Reveal";
 import { CheckList } from "@/components/ui/CheckList";
+import { ImageFeature } from "@/components/ui/ImageFeature";
 import { FeatureGrid } from "@/components/ui/FeatureGrid";
 import { FlagGrid } from "@/components/ui/FlagGrid";
 import { NumberedSteps } from "@/components/ui/NumberedSteps";
@@ -137,11 +138,11 @@ const faqs = [
 export default function VisaServicesPage() {
   return (
     <>
-      <SplitHero
+      <CinematicHero
         eyebrow="Visa Services"
         title="Professional Visa Advisory Services"
         description="Applying for a visa can be one of the most important steps in achieving your travel, study, business, or family goals. We help you understand official requirements, prepare complete documentation, and submit well-organized applications."
-        visual={<ProcessDotsVisual steps={heroVisualSteps} />}
+        backgroundImage="/images/visa-services.png"
       >
         <Button href="/book-consultation?service=Visa%20Services" size="lg">
           Book a Visa Consultation
@@ -149,7 +150,7 @@ export default function VisaServicesPage() {
         <Button href="/contact" variant="outline-light" size="lg">
           Ask a Question
         </Button>
-      </SplitHero>
+      </CinematicHero>
 
       <section className="bg-paper py-20 sm:py-28">
         <Container>
@@ -164,42 +165,44 @@ export default function VisaServicesPage() {
       </section>
 
       <section className="bg-white py-20 sm:py-28">
-        <Container>
-          <div className="grid grid-cols-1 gap-14 lg:grid-cols-2">
-            <div>
-              <SectionHeader
-                align="left"
-                eyebrow="Student Visas"
-                title="Support tailored to academic travel"
-                description="Our support for student visa applicants includes:"
-              />
-              <Reveal delay={0.12} className="mt-8">
-                <CheckList items={studentVisaSupport} columns={1} />
-              </Reveal>
-            </div>
-            <div>
-              <SectionHeader
-                align="left"
-                eyebrow="Destinations Covered"
-                title="Guidance for these study destinations"
-              />
-              <Reveal delay={0.12} className="mt-8">
-                <FlagGrid items={destinations} />
-              </Reveal>
-            </div>
-          </div>
+        <Container className="max-w-3xl">
+          <SectionHeader
+            align="left"
+            eyebrow="Student Visas"
+            title="Support tailored to academic travel"
+            description="Our support for student visa applicants includes:"
+          />
+          <Reveal delay={0.12} className="mt-8">
+            <CheckList items={studentVisaSupport} columns={1} className="max-w-sm" />
+          </Reveal>
         </Container>
       </section>
 
       <section className="bg-paper py-20 sm:py-28">
-        <Container className="max-w-4xl">
+        <Container>
           <SectionHeader
-            eyebrow="Why Choose SRC"
-            title="Guidance you can trust"
+            eyebrow="Destinations Covered"
+            title="Guidance for these study destinations"
+            description="SRC provides visa advisory guidance for the following countries."
           />
-          <Reveal delay={0.15} className="mt-12">
-            <CheckList items={whyChoose} />
+          <Reveal delay={0.12} className="mt-12 lg:mt-14">
+            <FlagGrid items={destinations} />
           </Reveal>
+        </Container>
+      </section>
+
+      <section className="bg-paper py-20 sm:py-28">
+        <Container>
+          <ImageFeature reverse imageSrc="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1200" imageAlt="Airplane wing view representing travel goals">
+            <SectionHeader
+              eyebrow="Why Choose SRC"
+              title="Guidance you can trust"
+              align="left"
+            />
+            <Reveal delay={0.15} className="mt-10">
+              <CheckList items={whyChoose} columns={1} />
+            </Reveal>
+          </ImageFeature>
         </Container>
       </section>
 
